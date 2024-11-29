@@ -1,0 +1,71 @@
+name: Add Chart to Helm Repository
+
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: GitHub repository ID (e.g., username/reponame)
+        required: true
+        type: string
+      release_id:
+        description: Release ID to fetch the chart artifact from
+        required: true
+        type: string
+
+jobs:
+  add-helm-chart:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download chart artifact
+        id: downloaded_artifacts
+        run: |
+          gh release view ${{ inputs.release_id }} --repo ${{ inputs.repository }} --json 'assets' --jq '.assets[0] | to_entries | .[] | "\(.key)=\"\(.value)\""' >> $GITHUB_OUTPUT
+          gh download ${{ inputs.release_id }} --repo ${{ inputs.repository }}
+        
+      - name: Update index.yaml
+        run: |
+          # Extract the chart metadata from the Chart.yaml inside the .tgz file
+          asset_name="${{ steps.downloaded_artifacts.outputs.name }}"
+          chart_name="${asset_name%%-*}"
+          tar -xzf "$asset_name"
+          
+          Create the helm chart
+          mv $chart_name/Chart.yaml .
+          yq '. += {"created":"'$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')'", "digest":"'$(sha256sum "$asset_name")'", "urls":["${{ steps.downloaded_artifacts.outputs.url }}"]}' Chart.yml
+                    
+          # Add the new chart entry to the index.yaml file
+          yq eval ".entries.$chart_name += load('object.yaml')" -i index.yaml
+
+          # Update generation date
+          yq eval ".generated = $(date '+%Y-%m-%dT%H:%M:%S.%N%:z')"
+        
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git add index.yaml
+
+          # Check if there are any changes to commit and set output accordingly
+          if [ -n "$(git diff --cached)" ]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Configure Git
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Commit changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git commit -m "Publishing ${{ steps.downloaded_artifacts.outputs.name }}"
+
+      - name: Push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git push origin
