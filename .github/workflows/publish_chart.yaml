@@ -24,7 +24,10 @@ jobs:
         run: |
           gh release view ${{ inputs.release_id }} --repo ${{ inputs.repository }} --json 'assets' --jq '.assets[0] | to_entries | .[] | "\(.key)=\"\(.value)\""' >> $GITHUB_OUTPUT
           gh download ${{ inputs.release_id }} --repo ${{ inputs.repository }}
-        
+      
+      - name: Setup yq
+        uses: dcarbone/install-yq-action@v1
+
       - name: Update index.yaml
         run: |
           # Extract the chart metadata from the Chart.yaml inside the .tgz file
