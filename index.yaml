@@ -1,3 +1,17 @@
 apiVersion: v1
-entries: {}
-generated: "2024-11-30T22:29:46.910774669+00:00"
+entries:
+  homeassistant:
+    apiVersion: v2
+    appVersion: 2024.11.2
+    description: A Helm chart for deploying Home Assistant on Kubernetes
+    home: https://github.com/ammarlakis/home-assistant-chart
+    icon: https://upload.wikimedia.org/wikipedia/commons/a/ab/New_Home_Assistant_logo.svg
+    maintainers:
+      - name: ammarlakis
+        url: https://github.com/ammarlakis
+    name: homeassistant
+    sources:
+      - https://github.com/home-assistant/core
+    type: application
+    version: 1.0.0
+generated: "2024-11-30T22:36:36.080699519+00:00"
