@@ -7,7 +7,7 @@ on:
         description: GitHub repository ID (e.g., username/reponame)
         required: true
         type: string
-      release_id:
+      release_name:
         description: Release ID to fetch the chart artifact from
         required: true
         type: string
@@ -24,8 +24,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release view ${{ inputs.release_id }} --repo ${{ inputs.repository }} --json 'assets' --jq '.assets[0] | to_entries | .[] | "\(.key)=\"\(.value)\""' >> $GITHUB_OUTPUT
-          gh download ${{ inputs.release_id }} --repo ${{ inputs.repository }}
+          gh release view ${{ inputs.release_name }} --repo ${{ inputs.repository }} --json 'assets' --jq '.assets[0] | to_entries | .[] | "\(.key)=\"\(.value)\""' >> $GITHUB_OUTPUT
+          gh release download ${{ inputs.release_name }} --repo ${{ inputs.repository }}
 
       - name: Setup yq
         uses: dcarbone/install-yq-action@v1
