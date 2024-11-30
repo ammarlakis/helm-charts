@@ -77,10 +77,15 @@ jobs:
         run: |
           git push origin ${{ github.event.repository.default_branch }}
 
+      - name: Prepare pages file
+        run: |
+          mkdir dist
+          mv index.yaml dist/
+
       - name: Upload index file as artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: index.yaml
+          path: dist/
 
   publish-pages:
     needs:
