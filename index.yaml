@@ -18,4 +18,14 @@ entries:
       digest: ff592bbbe8ab342c106bb7ec1518e0c8777a8bc11a5942bf7cdae81036054802
       urls:
         - https://github.com/ammarlakis/home-assistant-chart/releases/download/homeassistant-1.0.0/homeassistant-1.0.0.tgz
-generated: "2024-11-30T22:47:28.086181937+00:00"
+    - apiVersion: v2
+      maintainers:
+        - name: ammarlakis
+          url: https://github.com/ammarlakis
+      name: homeassistant
+      version: v0.0.12
+      created: "2024-11-30T23:26:27.654963140+00:00"
+      digest: cf086152f7045a45e6d50029c5a5165aa07d4f0ff438dfab1292bdc7889b7d43
+      urls:
+        - https://github.com/ammarlakis/home-assistant-chart/releases/download/homeassistant-v0.0.12/homeassistant-v0.0.12.tgz
+generated: "2024-11-30T23:26:27.721571770+00:00"
