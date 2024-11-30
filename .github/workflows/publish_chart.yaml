@@ -21,6 +21,8 @@ jobs:
 
       - name: Download chart artifact
         id: downloaded_artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh release view ${{ inputs.release_id }} --repo ${{ inputs.repository }} --json 'assets' --jq '.assets[0] | to_entries | .[] | "\(.key)=\"\(.value)\""' >> $GITHUB_OUTPUT
           gh download ${{ inputs.release_id }} --repo ${{ inputs.repository }}
