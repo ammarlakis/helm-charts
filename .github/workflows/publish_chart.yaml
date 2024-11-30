@@ -39,7 +39,7 @@ jobs:
 
           # Create the helm chart
           mv $chart_name/Chart.yaml .
-          yq '. += {"created":"'$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')'", "digest":"'$(sha256sum "$asset_name")'", "urls":["${{ steps.downloaded_artifacts.outputs.url }}"]}' Chart.yml
+          yq '. += {"created":"'$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')'", "digest":"'$(sha256sum "$asset_name")'", "urls":[${{ steps.downloaded_artifacts.outputs.url }}]}' Chart.yml
                     
           # Add the new chart entry to the index.yaml file
           yq eval ".entries.$chart_name += load('object.yaml')" -i index.yaml
