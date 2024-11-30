@@ -33,7 +33,7 @@ jobs:
       - name: Update index.yaml
         run: |
           # Extract the chart metadata from the Chart.yaml inside the .tgz file
-          asset_name="${{ steps.downloaded_artifacts.outputs.name }}"
+          asset_name=${{ steps.downloaded_artifacts.outputs.name }}
           chart_name="${asset_name%%-*}"
           tar -xzf "$asset_name"
 
