@@ -41,13 +41,13 @@ jobs:
 
           # Create the helm chart
           mv $chart_name/Chart.yaml .
-          yq '. += {"created":"'$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')'", "digest":"'$(sha256sum "$asset_name" | cut -d\  -f 1)'", "urls":[${{ steps.downloaded_artifacts.outputs.url }}]}' Chart.yaml
+          yq '. += {"created":"'$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')'", "digest":"'$(sha256sum "$asset_name" | cut -d\  -f 1)'", "urls":[${{ steps.downloaded_artifacts.outputs.url }}]}' -i Chart.yaml
                     
           # Add the new chart entry to the index.yaml file
-          yq eval ".entries.$chart_name = load(\"Chart.yaml\")" -i index.yaml
+          yq ".entries.$chart_name = load(\"Chart.yaml\")" -i index.yaml
 
           # Update generation date
-          yq eval ".generated = \"$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')\"" -i index.yaml
+          yq ".generated = \"$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')\"" -i index.yaml
 
       - name: Check for changes
         id: check_changes
