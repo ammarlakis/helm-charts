@@ -37,7 +37,7 @@ jobs:
           chart_name="${asset_name%%-*}"
           tar -xzf "$asset_name"
 
-          Create the helm chart
+          # Create the helm chart
           mv $chart_name/Chart.yaml .
           yq '. += {"created":"'$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')'", "digest":"'$(sha256sum "$asset_name")'", "urls":["${{ steps.downloaded_artifacts.outputs.url }}"]}' Chart.yml
                     
