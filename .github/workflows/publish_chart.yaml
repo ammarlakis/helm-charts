@@ -44,7 +44,7 @@ jobs:
           yq '. += {"created":"'$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')'", "digest":"'$(sha256sum "$asset_name" | cut -d\  -f 1)'", "urls":[${{ steps.downloaded_artifacts.outputs.url }}]}' -i Chart.yaml
                     
           # Add the new chart entry to the index.yaml file
-          yq ".entries.$chart_name = load(\"Chart.yaml\")" -i index.yaml
+          yq ".entries.$chart_name += [load(\"Chart.yaml\")]" -i index.yaml
 
           # Update generation date
           yq ".generated = \"$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')\"" -i index.yaml
