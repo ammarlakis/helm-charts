@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       release_name:
-        description: Release ID to fetch the chart artifact from
+        description: Release name to fetch the chart artifact from.
         required: true
         type: string
 
