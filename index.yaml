@@ -30,13 +30,6 @@ entries:
         - https://github.com/ammarlakis/home-assistant-chart/releases/download/homeassistant-v0.0.12/homeassistant-v0.0.12.tgz
   zigbee2mqtt:
     - apiVersion: v2
-      name: zigbee2mqtt
-      version: 0.0.5
-      created: "2024-12-28T22:03:37.590757393+00:00"
-      digest: 17324a4878349050992746832edee316e7dd2d78c6d418469473dca27222e44e
-      urls:
-        - https://github.com/ammarlakis/home-assistant-chart/releases/download/zigbee2mqtt-0.0.5/zigbee2mqtt-0.0.5.tgz
-    - apiVersion: v2
       appVersion: 1.42.0
       description: Zigbee2MQTT Helm chart
       name: zigbee2mqtt
