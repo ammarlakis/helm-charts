@@ -1,0 +1,9 @@
+datasources:
+  index:
+    url: index.yaml
+
+inputFiles:
+  - README.md.gotmpl
+
+outputFiles:
+  - README.md

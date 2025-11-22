@@ -49,10 +49,17 @@ jobs:
           # Update generation date
           yq ".generated = \"$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')\"" -i index.yaml
 
+      - name: Render README from template
+        uses: ammarlakis/action-gomplate@v1
+        with:
+          input_file: README.md.gotmpl
+          output_file: README.md
+          data_sources: "index=index.yaml"
+
       - name: Check for changes
         id: check_changes
         run: |
-          git add index.yaml
+          git add index.yaml README.md
 
           # Check if there are any changes to commit and set output accordingly
           if [ -n "$(git diff --cached)" ]; then
