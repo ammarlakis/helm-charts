@@ -39,4 +39,14 @@ entries:
       digest: 991e1d6a08c33cae458d644ebda4e8bd3f361b4371d23eddc8d01e25b6460d47
       urls:
         - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.1.0/zigbee2mqtt-0.1.0.tgz
-generated: "2025-11-22T21:18:43.403235586+00:00"
+    - apiVersion: v2
+      appVersion: 1.42.0
+      description: Zigbee2MQTT Helm chart
+      name: zigbee2mqtt
+      type: application
+      version: 0.2.0
+      created: "2025-11-22T23:54:01.611547518+00:00"
+      digest: a025f5aa58783e13fe747cebe19cc28ad6c9dcca0439c7e3b58ce86fe628cb5d
+      urls:
+        - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.2.0/zigbee2mqtt-0.2.0.tgz
+generated: "2025-11-22T23:54:01.964785124+00:00"
