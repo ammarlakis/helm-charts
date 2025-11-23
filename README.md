@@ -14,7 +14,7 @@ helm repo add ammarlakis https://ammarlakis.github.io/helm-charts/
 
 Below is the list of Helm charts available in this repository:
   - **[homeassistant](https://github.com/ammarlakis/home-assistant-chart)**: latest version `v0.0.12`
-  - **zigbee2mqtt**: latest version `0.3.0`
+  - **zigbee2mqtt**: latest version `0.3.1`
 
 ## Usage
 
