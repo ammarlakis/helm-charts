@@ -90,4 +90,25 @@ entries:
       digest: 16390c4c7b265d0d5308e54e724927ac7ad06650ec9205ab0aed958daf6d86ca
       urls:
         - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.3.2/zigbee2mqtt-0.3.2.tgz
-generated: "2025-11-24T00:48:59.640439594+00:00"
+    - apiVersion: v2
+      appVersion: 2.6.3
+      description: Zigbee2MQTT Helm chart
+      home: https://github.com/ammarlakis/zigbee2mqtt-chart
+      keywords:
+        - zigbee
+        - mqtt
+        - homeassistant
+        - zigbee2mqtt
+      maintainers:
+        - name: Ammar Lakis
+          url: https://github.com/ammarlakis
+      name: zigbee2mqtt
+      sources:
+        - https://github.com/Koenkk/zigbee2mqtt
+      type: application
+      version: 0.3.2
+      created: "2025-11-24T21:08:52.423115462+00:00"
+      digest: 0389a0763bfb7b8013127a04007f9320252f903a1071e57669ef55638021a5b7
+      urls:
+        - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.3.2/zigbee2mqtt-0.3.2.tgz
+generated: "2025-11-24T21:08:52.785499894+00:00"
