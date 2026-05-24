@@ -90,6 +90,27 @@ entries:
       digest: 716382a6399c17d9e91668f197061b1c10396c26f5d4690043d6ee110ab43ff2
       urls:
         - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.3.2/zigbee2mqtt-0.3.2.tgz
+    - apiVersion: v2
+      appVersion: 2.6.3
+      description: Zigbee2MQTT Helm chart
+      home: https://github.com/ammarlakis/zigbee2mqtt-chart
+      keywords:
+        - zigbee
+        - mqtt
+        - homeassistant
+        - zigbee2mqtt
+      maintainers:
+        - name: Ammar Lakis
+          url: https://github.com/ammarlakis
+      name: zigbee2mqtt
+      sources:
+        - https://github.com/Koenkk/zigbee2mqtt
+      type: application
+      version: 0.4.0
+      created: "2026-05-24T20:47:04.882219844+00:00"
+      digest: b01e17ce1388e24f0148338b026db417be59a789ba6b8695cdf3b0e0d007feed
+      urls:
+        - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.4.0/zigbee2mqtt-0.4.0.tgz
   paperless-wsd-bridge:
     - apiVersion: v2
       appVersion: 0.1.6
@@ -112,4 +133,4 @@ entries:
       digest: f67928e5db31e647a6ee866ec3b024d497f4dac18f1f376a98b84b143f7f2e89
       urls:
         - https://github.com/ammarlakis/paperless-wsd-bridge/releases/download/v0.1.6/paperless-wsd-bridge-helm-0.1.6.tgz
-generated: "2026-05-24T19:42:56.592531222+00:00"
+generated: "2026-05-24T20:47:04.906795631+00:00"
