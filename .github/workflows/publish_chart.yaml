@@ -103,10 +103,17 @@ jobs:
           output_file: README.md
           data_sources: "index=index.yaml"
 
+      - name: Render HTML index from template
+        uses: ammarlakis/action-gomplate@v1
+        with:
+          input_file: index.html.gotmpl
+          output_file: index.html
+          data_sources: "index=index.yaml"
+
       - name: Check for changes
         id: check_changes
         run: |
-          git add index.yaml README.md
+          git add index.yaml README.md index.html
 
           # Check if there are any changes to commit and set output accordingly
           if [ -n "$(git diff --cached)" ]; then
@@ -134,7 +141,7 @@ jobs:
       - name: Prepare pages file
         run: |
           mkdir dist
-          mv index.yaml dist/
+          cp index.yaml index.html dist/
 
       - name: Upload index file as artifact
         uses: actions/upload-pages-artifact@v3

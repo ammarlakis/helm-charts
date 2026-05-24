@@ -4,6 +4,8 @@ datasources:
 
 inputFiles:
   - README.md.gotmpl
+  - index.html.gotmpl
 
 outputFiles:
   - README.md
+  - index.html
