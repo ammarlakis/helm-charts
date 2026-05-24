@@ -90,4 +90,26 @@ entries:
       digest: 716382a6399c17d9e91668f197061b1c10396c26f5d4690043d6ee110ab43ff2
       urls:
         - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.3.2/zigbee2mqtt-0.3.2.tgz
-generated: "2025-11-25T00:10:55.900993659+00:00"
+  paperless-wsd-bridge:
+    - apiVersion: v2
+      appVersion: 0.1.6
+      description: WSD push-scan receiver that uploads scanned documents to Paperless-ngx
+      home: https://github.com/ammarlakis/paperless-wsd-bridge
+      keywords:
+        - paperless-ngx
+        - scanner
+        - wsd
+        - document-management
+      maintainers:
+        - name: Ammar Lakis
+          url: https://github.com/ammarlakis
+      name: paperless-wsd-bridge
+      sources:
+        - https://github.com/ammarlakis/paperless-wsd-bridge
+      type: application
+      version: 0.1.6
+      created: "2026-05-24T19:42:56.582048032+00:00"
+      digest: f67928e5db31e647a6ee866ec3b024d497f4dac18f1f376a98b84b143f7f2e89
+      urls:
+        - https://github.com/ammarlakis/paperless-wsd-bridge/releases/download/v0.1.6/paperless-wsd-bridge-helm-0.1.6.tgz
+generated: "2026-05-24T19:42:56.592531222+00:00"
