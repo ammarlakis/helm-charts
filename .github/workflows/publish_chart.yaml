@@ -36,15 +36,24 @@ jobs:
         run: |
           # Extract the chart metadata from the Chart.yaml inside the .tgz file
           asset_name=${{ steps.downloaded_artifacts.outputs.name }}
-          chart_name="${asset_name%%-*}"
-          tar -xzf "$asset_name"
+          chart_dir="$(tar -tzf "$asset_name" | awk -F/ '$2 == "Chart.yaml" { print $1; exit }')"
+          if [ -z "$chart_dir" ]; then
+            echo "Could not find Chart.yaml in $asset_name" >&2
+            exit 1
+          fi
+
+          tar -xOzf "$asset_name" "$chart_dir/Chart.yaml" > Chart.yaml
+          chart_name="$(yq -r '.name' Chart.yaml)"
+          if [ -z "$chart_name" ] || [ "$chart_name" = "null" ]; then
+            echo "Could not read chart name from Chart.yaml in $asset_name" >&2
+            exit 1
+          fi
 
           # Create the helm chart
-          mv $chart_name/Chart.yaml .
           yq '. += {"created":"'$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')'", "digest":"'$(sha256sum "$asset_name" | cut -d\  -f 1)'", "urls":[${{ steps.downloaded_artifacts.outputs.url }}]}' -i Chart.yaml
-                    
+
           # Add the new chart entry to the index.yaml file
-          yq ".entries.$chart_name += [load(\"Chart.yaml\")]" -i index.yaml
+          CHART_NAME="$chart_name" yq '.entries[strenv(CHART_NAME)] += [load("Chart.yaml")]' -i index.yaml
 
           # Update generation date
           yq ".generated = \"$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')\"" -i index.yaml
