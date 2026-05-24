@@ -11,6 +11,10 @@ on:
         description: Release name to fetch the chart artifact from.
         required: true
         type: string
+      chart_asset:
+        description: Exact Helm chart asset to download (e.g., paperless-wsd-bridge-0.1.6.tgz)
+        required: true
+        type: string
 
 jobs:
   add-helm-chart:
@@ -25,17 +29,49 @@ jobs:
         id: downloaded_artifacts
         env:
           GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ inputs.repository }}
+          RELEASE_NAME: ${{ inputs.release_name }}
+          CHART_ASSET: ${{ inputs.chart_asset }}
         run: |
-          gh release view ${{ inputs.release_name }} --repo ${{ inputs.repository }} --json 'assets' --jq '.assets[0] | to_entries | .[] | "\(.key)=\"\(.value)\""' >> $GITHUB_OUTPUT
-          gh release download ${{ inputs.release_name }} --repo ${{ inputs.repository }}
+          if [[ "$CHART_ASSET" != *.tgz ]]; then
+            echo "chart_asset must be a .tgz Helm chart package: $CHART_ASSET" >&2
+            exit 1
+          fi
+
+          asset_url="$(gh release view "$RELEASE_NAME" --repo "$REPOSITORY" --json assets | jq -r --arg name "$CHART_ASSET" '.assets[] | select(.name == $name) | .url')"
+          if [ -z "$asset_url" ] || [ "$asset_url" = "null" ]; then
+            echo "Could not find chart asset '$CHART_ASSET' in release '$RELEASE_NAME' for $REPOSITORY" >&2
+            exit 1
+          fi
+
+          gh release download "$RELEASE_NAME" --repo "$REPOSITORY" --pattern "$CHART_ASSET" --clobber
+          if [ ! -f "$CHART_ASSET" ]; then
+            echo "Chart asset '$CHART_ASSET' was not downloaded" >&2
+            exit 1
+          fi
+
+          echo "name=$CHART_ASSET" >> "$GITHUB_OUTPUT"
+          echo "url=$asset_url" >> "$GITHUB_OUTPUT"
 
       - name: Setup yq
         uses: dcarbone/install-yq-action@v1
 
       - name: Update index.yaml
+        env:
+          ASSET_NAME: ${{ steps.downloaded_artifacts.outputs.name }}
+          ASSET_URL: ${{ steps.downloaded_artifacts.outputs.url }}
         run: |
           # Extract the chart metadata from the Chart.yaml inside the .tgz file
-          asset_name=${{ steps.downloaded_artifacts.outputs.name }}
+          asset_name="$ASSET_NAME"
+          if [ -z "$asset_name" ]; then
+            echo "Missing downloaded chart asset name" >&2
+            exit 1
+          fi
+          if [ -z "$ASSET_URL" ]; then
+            echo "Missing downloaded chart asset URL" >&2
+            exit 1
+          fi
+
           chart_dir="$(tar -tzf "$asset_name" | awk -F/ '$2 == "Chart.yaml" { print $1; exit }')"
           if [ -z "$chart_dir" ]; then
             echo "Could not find Chart.yaml in $asset_name" >&2
@@ -50,7 +86,9 @@ jobs:
           fi
 
           # Create the helm chart
-          yq '. += {"created":"'$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')'", "digest":"'$(sha256sum "$asset_name" | cut -d\  -f 1)'", "urls":[${{ steps.downloaded_artifacts.outputs.url }}]}' -i Chart.yaml
+          created="$(date '+%Y-%m-%dT%H:%M:%S.%N%:z')"
+          digest="$(sha256sum "$asset_name" | cut -d\  -f 1)"
+          CREATED="$created" DIGEST="$digest" ASSET_URL="$ASSET_URL" yq '. += {"created": strenv(CREATED), "digest": strenv(DIGEST), "urls": [strenv(ASSET_URL)]}' -i Chart.yaml
 
           # Add the new chart entry to the index.yaml file
           CHART_NAME="$chart_name" yq '.entries[strenv(CHART_NAME)] += [load("Chart.yaml")]' -i index.yaml
