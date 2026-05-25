@@ -205,4 +205,21 @@ entries:
       digest: 8c2d6be1e6f7ea7422fc0c530ef8eed78b934af2b292f5b140a6c853d42193bf
       urls:
         - https://github.com/ammarlakis/garage-chart/releases/download/v0.10.0/garage-0.10.0.tgz
-generated: "2026-05-25T01:12:04.257412864+00:00"
+  twenty:
+    - apiVersion: v2
+      appVersion: v2.6.0
+      description: Twenty CRM
+      home: https://twenty.com
+      maintainers:
+        - name: Ammar Lakis
+          url: https://github.com/ammarlakis
+      name: twenty
+      sources:
+        - https://github.com/twentyhq/twenty
+      type: application
+      version: 0.1.0
+      created: "2026-05-25T14:44:39.193658056+00:00"
+      digest: 8d475de6398a368c7cff2c35a26f2a55bcee14566ebeed61dfe329501d8b5af1
+      urls:
+        - https://github.com/ammarlakis/twenty-crm-chart/releases/download/v0.1.0/twenty-0.1.0.tgz
+generated: "2026-05-25T14:44:39.216141808+00:00"
