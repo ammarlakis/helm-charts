@@ -182,4 +182,27 @@ entries:
       digest: 75ab991625b696633bfe398c14e28f915fb21500e61a34cb671f0b8b2708d68c
       urls:
         - https://github.com/ammarlakis/koreader-sync-server-chart/releases/download/v0.1.0/koreader-sync-server-0.1.0.tgz
-generated: "2026-05-25T00:28:27.984845488+00:00"
+  garage:
+    - apiVersion: v2
+      appVersion: v2.2.0
+      description: S3-compatible object store for small self-hosted geo-distributed deployments with optional web UI
+      home: https://garagehq.deuxfleurs.fr/
+      icon: https://garagehq.deuxfleurs.fr/images/garage-logo.svg
+      keywords:
+        - geo-distributed
+        - read-after-write-consistency
+        - s3-compatible
+      maintainers:
+        - name: Ammar Lakis
+          url: https://github.com/ammarlakis
+      name: garage
+      sources:
+        - https://git.deuxfleurs.fr/Deuxfleurs/garage.git
+        - https://github.com/cloudlena/s3manager
+      type: application
+      version: 0.10.0
+      created: "2026-05-25T01:12:04.233004046+00:00"
+      digest: 8c2d6be1e6f7ea7422fc0c530ef8eed78b934af2b292f5b140a6c853d42193bf
+      urls:
+        - https://github.com/ammarlakis/garage-chart/releases/download/v0.10.0/garage-0.10.0.tgz
+generated: "2026-05-25T01:12:04.257412864+00:00"
