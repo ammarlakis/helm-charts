@@ -111,6 +111,27 @@ entries:
       digest: b01e17ce1388e24f0148338b026db417be59a789ba6b8695cdf3b0e0d007feed
       urls:
         - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.4.0/zigbee2mqtt-0.4.0.tgz
+    - apiVersion: v2
+      appVersion: 2.6.3
+      description: Zigbee2MQTT Helm chart
+      home: https://github.com/ammarlakis/zigbee2mqtt-chart
+      keywords:
+        - zigbee
+        - mqtt
+        - homeassistant
+        - zigbee2mqtt
+      maintainers:
+        - name: Ammar Lakis
+          url: https://github.com/ammarlakis
+      name: zigbee2mqtt
+      sources:
+        - https://github.com/Koenkk/zigbee2mqtt
+      type: application
+      version: 0.5.0
+      created: "2026-05-25T00:28:27.960632390+00:00"
+      digest: 6936d550a8587eee380eb07c8ebb24752b11f7146d1bbec20183ee6b1190573c
+      urls:
+        - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.5.0/zigbee2mqtt-0.5.0.tgz
   paperless-wsd-bridge:
     - apiVersion: v2
       appVersion: 0.1.6
@@ -161,4 +182,4 @@ entries:
       digest: 75ab991625b696633bfe398c14e28f915fb21500e61a34cb671f0b8b2708d68c
       urls:
         - https://github.com/ammarlakis/koreader-sync-server-chart/releases/download/v0.1.0/koreader-sync-server-0.1.0.tgz
-generated: "2026-05-24T22:04:55.027416521+00:00"
+generated: "2026-05-25T00:28:27.984845488+00:00"
