@@ -222,4 +222,22 @@ entries:
       digest: 8d475de6398a368c7cff2c35a26f2a55bcee14566ebeed61dfe329501d8b5af1
       urls:
         - https://github.com/ammarlakis/twenty-crm-chart/releases/download/v0.1.0/twenty-0.1.0.tgz
-generated: "2026-05-25T14:44:39.216141808+00:00"
+  kavita:
+    - apiVersion: v2
+      appVersion: v0.9.0.2
+      description: Kavita reading server
+      home: https://www.kavitareader.com/
+      maintainers:
+        - name: Ammar Lakis
+          url: https://github.com/ammarlakis
+      name: kavita
+      sources:
+        - https://github.com/Kareadita/Kavita
+        - https://wiki.kavitareader.com/
+      type: application
+      version: 0.1.0
+      created: "2026-05-28T16:42:20.952451180+00:00"
+      digest: d47052fe2bcaa9cac17725e508135f8b49610ebb4c2351b4fccc527e0594456d
+      urls:
+        - https://github.com/ammarlakis/kavita-chart/releases/download/v0.1.0/kavita-0.1.0.tgz
+generated: "2026-05-28T16:42:20.994026261+00:00"
