@@ -153,6 +153,27 @@ entries:
       digest: 5540ce0b522b2a39995d056cd1e7cdd268c2870ceba0260e617e31792faba0a6
       urls:
         - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.5.1/zigbee2mqtt-0.5.1.tgz
+    - apiVersion: v2
+      appVersion: 2.14.1
+      description: Zigbee2MQTT Helm chart
+      home: https://github.com/ammarlakis/zigbee2mqtt-chart
+      keywords:
+        - zigbee
+        - mqtt
+        - homeassistant
+        - zigbee2mqtt
+      maintainers:
+        - name: ammarlakis
+          url: https://github.com/ammarlakis
+      name: zigbee2mqtt
+      sources:
+        - https://github.com/Koenkk/zigbee2mqtt
+      type: application
+      version: 0.5.2
+      created: "2026-10-01T02:38:31.850189101+00:00"
+      digest: b72cb40dc50ab2ad5f5d5b82cce9971ae750763863dbdf9784dce61a22fbe363
+      urls:
+        - https://github.com/ammarlakis/zigbee2mqtt-chart/releases/download/v0.5.2/zigbee2mqtt-0.5.2.tgz
   paperless-wsd-bridge:
     - apiVersion: v2
       appVersion: 0.1.6
@@ -261,4 +282,4 @@ entries:
       digest: d47052fe2bcaa9cac17725e508135f8b49610ebb4c2351b4fccc527e0594456d
       urls:
         - https://github.com/ammarlakis/kavita-chart/releases/download/v0.1.0/kavita-0.1.0.tgz
-generated: "2026-10-01T02:27:29.793963624+00:00"
+generated: "2026-10-01T02:38:31.865998962+00:00"
