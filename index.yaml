@@ -304,4 +304,21 @@ entries:
       digest: d47052fe2bcaa9cac17725e508135f8b49610ebb4c2351b4fccc527e0594456d
       urls:
         - https://github.com/ammarlakis/kavita-chart/releases/download/v0.1.0/kavita-0.1.0.tgz
-generated: "2026-10-01T03:43:05.795402589+00:00"
+    - apiVersion: v2
+      appVersion: 0.9.0.2
+      description: Kavita reading server
+      home: https://www.kavitareader.com/
+      maintainers:
+        - name: ammarlakis
+          url: https://github.com/ammarlakis
+      name: kavita
+      sources:
+        - https://github.com/Kareadita/Kavita
+        - https://wiki.kavitareader.com/
+      type: application
+      version: 0.1.1
+      created: "2026-10-01T03:52:20.449838076+00:00"
+      digest: fe1e683742ffe11ffd7fde4e83611e20a2e9e42ea137a8d6e83c7fafbcdd95ee
+      urls:
+        - https://github.com/ammarlakis/kavita-chart/releases/download/v0.1.1/kavita-0.1.1.tgz
+generated: "2026-10-01T03:52:20.474566086+00:00"
