@@ -224,6 +224,33 @@ entries:
       digest: 75ab991625b696633bfe398c14e28f915fb21500e61a34cb671f0b8b2708d68c
       urls:
         - https://github.com/ammarlakis/koreader-sync-server-chart/releases/download/v0.1.0/koreader-sync-server-0.1.0.tgz
+    - annotations:
+        artifacthub.io/category: storage
+        artifacthub.io/images: |
+          - name: koreader-sync-server
+            image: koreader/kosync:v2.1.1
+      apiVersion: v2
+      appVersion: v2.1.1
+      description: Helm chart for deploying the KOReader sync server
+      home: https://github.com/ammarlakis/koreader-sync-server-chart
+      keywords:
+        - ebook
+        - koreader
+        - sync
+        - reader
+      maintainers:
+        - name: ammarlakis
+          url: https://github.com/ammarlakis
+      name: koreader-sync-server
+      sources:
+        - https://github.com/koreader/koreader-sync-server
+        - https://hub.docker.com/r/koreader/kosync
+      type: application
+      version: 0.1.1
+      created: "2026-10-01T03:53:25.345486595+00:00"
+      digest: 2fde5cd9e66c4962bef501d30d6ab7eaade17d5e707ada515ac57f3bfa35d9f0
+      urls:
+        - https://github.com/ammarlakis/koreader-sync-server-chart/releases/download/v0.1.1/koreader-sync-server-0.1.1.tgz
   garage:
     - apiVersion: v2
       appVersion: v2.2.0
@@ -321,4 +348,4 @@ entries:
       digest: fe1e683742ffe11ffd7fde4e83611e20a2e9e42ea137a8d6e83c7fafbcdd95ee
       urls:
         - https://github.com/ammarlakis/kavita-chart/releases/download/v0.1.1/kavita-0.1.1.tgz
-generated: "2026-10-01T03:52:20.474566086+00:00"
+generated: "2026-10-01T03:53:25.369746178+00:00"
