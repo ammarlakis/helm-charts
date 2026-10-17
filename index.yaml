@@ -339,6 +339,28 @@ entries:
       digest: 837041573faa590ce1bbab1afdc8298042b83e787a1c132dba76e0bc1783d820
       urls:
         - https://github.com/ammarlakis/garage-chart/releases/download/v0.10.2/garage-0.10.2.tgz
+    - apiVersion: v2
+      appVersion: v2.4.1
+      description: S3-compatible object store for small self-hosted geo-distributed deployments with optional web UI
+      home: https://garagehq.deuxfleurs.fr/
+      icon: https://garagehq.deuxfleurs.fr/images/garage-logo.svg
+      keywords:
+        - geo-distributed
+        - read-after-write-consistency
+        - s3-compatible
+      maintainers:
+        - name: ammarlakis
+          url: https://github.com/ammarlakis
+      name: garage
+      sources:
+        - https://git.deuxfleurs.fr/Deuxfleurs/garage.git
+        - https://github.com/cloudlena/s3manager
+      type: application
+      version: 0.10.3
+      created: "2026-10-17T14:20:44.958084650+00:00"
+      digest: 9b3072b73ea683158c92df9fb663a4422e04ecc2a68a7de92450d62e6ba33d9e
+      urls:
+        - https://github.com/ammarlakis/garage-chart/releases/download/v0.10.3/garage-0.10.3.tgz
   twenty:
     - apiVersion: v2
       appVersion: v2.6.0
@@ -423,4 +445,4 @@ entries:
       digest: fe1e683742ffe11ffd7fde4e83611e20a2e9e42ea137a8d6e83c7fafbcdd95ee
       urls:
         - https://github.com/ammarlakis/kavita-chart/releases/download/v0.1.1/kavita-0.1.1.tgz
-generated: "2026-10-03T15:07:43.530119087+00:00"
+generated: "2026-10-17T14:20:45.002863521+00:00"
