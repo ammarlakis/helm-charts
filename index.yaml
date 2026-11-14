@@ -524,6 +524,22 @@ entries:
       digest: 5c3be14eb6c6b1e477b8c801e1726b0858af492a498e950355b2833a47c20f9d
       urls:
         - https://github.com/ammarlakis/twenty-crm-chart/releases/download/v0.1.5/twenty-0.1.5.tgz
+    - apiVersion: v2
+      appVersion: v2.58.2
+      description: Twenty CRM
+      home: https://twenty.com
+      maintainers:
+        - name: ammarlakis
+          url: https://github.com/ammarlakis
+      name: twenty
+      sources:
+        - https://github.com/twentyhq/twenty
+      type: application
+      version: 0.1.6
+      created: "2026-11-14T10:53:53.797339887+00:00"
+      digest: 57778d49313b6a59fd5b6f02f7c91fc1f40e272196612e3a1d524b66400470e0
+      urls:
+        - https://github.com/ammarlakis/twenty-crm-chart/releases/download/v0.1.6/twenty-0.1.6.tgz
   kavita:
     - apiVersion: v2
       appVersion: v0.9.0.2
@@ -559,4 +575,4 @@ entries:
       digest: fe1e683742ffe11ffd7fde4e83611e20a2e9e42ea137a8d6e83c7fafbcdd95ee
       urls:
         - https://github.com/ammarlakis/kavita-chart/releases/download/v0.1.1/kavita-0.1.1.tgz
-generated: "2026-11-11T19:32:07.893733461+00:00"
+generated: "2026-11-14T10:53:53.860180420+00:00"
