@@ -13,7 +13,7 @@ helm repo add ammarlakis https://ammarlakis.github.io/helm-charts/
 ## Available Charts
 
 Below is the list of Helm charts available in this repository:
-  - **[garage](https://garagehq.deuxfleurs.fr/)**: latest version `0.10.6`
+  - **[garage](https://garagehq.deuxfleurs.fr/)**: latest version `0.10.7`
   - **[homeassistant](https://github.com/ammarlakis/home-assistant-chart)**: latest version `1.0.3`
   - **[kavita](https://www.kavitareader.com/)**: latest version `0.1.1`
   - **[koreader-sync-server](https://github.com/ammarlakis/koreader-sync-server-chart)**: latest version `0.1.1`
